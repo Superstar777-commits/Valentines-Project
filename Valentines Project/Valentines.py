@@ -105,6 +105,7 @@ if st.session_state.accepted:
     - 😊 Happiness: Guaranteed
     - 🍽️ Food: You choose
     - 💭 Memory: Pending creation
+    - 📍 Location: You choose
     """)
 
 elif st.session_state.no_clicks > 0:
@@ -139,6 +140,7 @@ st.markdown("""
 Made with courage ❤️
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
