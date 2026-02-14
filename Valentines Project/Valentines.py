@@ -1,6 +1,7 @@
 import streamlit as st
 from datetime import datetime, date
 import os
+import pathlib
 
 st.set_page_config(page_title="Thando ❤️", page_icon="❤️", layout="centered")
 
@@ -116,17 +117,18 @@ st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.subheader("📸 Our Memories")
 
-photo_folder = "Photos"
+BASE_DIR = pathlib.Path(__file__).parent
+photo_folder = BASE_DIR / "Photos"
 
-if os.path.exists(photo_folder):
-    Photos = os.listdir(photo_folder)
+if photo_folder.exists():
+    photos = list(photo_folder.glob("*"))
 
     cols = st.columns(2)
     for i, photo in enumerate(photos):
         with cols[i % 2]:
-            st.image(os.path.join(photo_folder, photo), use_container_width=True)
+            st.image(str(photo), use_container_width=True)
 else:
-    st.info("Add pictures into a folder named 'photos'")
+    st.error(f"Photo folder not found at: {photo_folder}")
 
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -137,6 +139,7 @@ st.markdown("""
 Made with courage ❤️
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
