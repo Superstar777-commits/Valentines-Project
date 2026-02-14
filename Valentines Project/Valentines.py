@@ -116,10 +116,10 @@ st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.subheader("📸 Our Memories")
 
-photo_folder = "photos"
+photo_folder = "Photos"
 
 if os.path.exists(photo_folder):
-    photos = os.listdir(photo_folder)
+    Photos = os.listdir(photo_folder)
 
     cols = st.columns(2)
     for i, photo in enumerate(photos):
@@ -137,5 +137,6 @@ st.markdown("""
 Made with courage ❤️
 </p>
 """, unsafe_allow_html=True)
+
 
 
